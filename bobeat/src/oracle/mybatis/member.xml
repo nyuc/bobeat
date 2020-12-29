@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oracle.mybatis.MemberMapper">
+   <select id="memberList" parameterType="map" resultType="map">
+      SELECT mem_id, mem_name FROM member69
+   </select>
+   <select id="proc_ajaxLogin" parameterType="map" statementType="CALLABLE">
+      {call proc_ajaxLogin(#{mem_id, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String}
+                          ,#{mem_pw, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String} 
+                          ,#{msg, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String} 
+                          ,#{rstatus, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String} 
+                         )}<!-- 프로시저 등록 -->
+   </select>     
+</mapper>
